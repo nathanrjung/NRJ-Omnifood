@@ -1,0 +1,286 @@
+/*
+
+--------Typography System-------------
+
+--FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+--Font weights:
+Default: 400
+Medium: 500
+Semi-bold: 600
+Bold: 700
+
+--Line heights:
+default: 1
+Small: 1.05
+Medium: 1.2
+Large: 1.8
+Paragraph default: 1.6
+
+
+
+--SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+-------Colors---------
+
+---Primary:
+Brand color: #e67e22
+
+---Tints:
+-fdf2e9
+
+---Shades:
+-#cf711f
+
+--Accents:
+
+--Grays:
+#555555
+#333333
+#6f6f6f (lightest gray allowed on #fdf2e9)
+#767676 (lightest gray allowed on #ffffff)
+
+---Shadows
+Keep shadows consistent
+
+---Border-radius
+default: 9px
+
+---White Space
+
+
+
+
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+  /*outline: 4px dotted #e67e22;*/
+  /*outline-offset: 4px;*/
+  box-shadow: 0 0 0 0.8rem rgba(230, 126, 34, 0.9);
+}
+
+html {
+  /*default browser font size is 16px */
+  /*we want default font-size to be 10px */
+  /*instead of setting default font size to 10px, */
+  /*use a % of user's default, i.e. 10px/16px = 62.5% */
+  /* (the percentage of user's default browser font-size) */
+  font-size: 62.5%;
+  overflow-x: hidden; /*this hides items outside the normal viewport width.
+  It only works if there is nothing absolutely positioned in relation to body  */
+
+  /*scroll-behavior: smooth; !*does not work on Safari*!*/
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #555555;
+  overflow-x: hidden; /*this hides items outside the normal viewport width.
+  It only works if there is nothing absolutely positioned in relation to body  */
+}
+
+strong {
+  font-weight: 600;
+}
+/***************************
+GENERAL REUSABLE COMPONENTS
+****************************/
+
+.container {
+  max-width: 120rem;
+  padding: 0 3.2rem;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  /* gap: row-gap column-gap; */
+  gap: 9.6rem 6.4rem;
+}
+
+/*.grid:last-child {*/
+/*  margin-bottom: 0;*/
+/*}*/
+
+.grid:not(:last-child) {
+  margin-bottom: 9.6rem;
+}
+
+.grid--2-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--4-cols {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid--5-cols {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.grid--center-v {
+  align-items: center;
+}
+
+.heading-primary,
+.heading-secondary,
+.heading-tertiary {
+  font-weight: 700;
+  color: #333333;
+  letter-spacing: -0.5px;
+}
+
+.heading-primary {
+  font-size: 5.2rem;
+  line-height: 1.05;
+  margin-bottom: 3.2rem;
+}
+
+.heading-secondary {
+  font-size: 4.4rem;
+  line-height: 1.2;
+  margin-bottom: 9.6rem;
+}
+
+.subheading {
+  display: block;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #cf711f;
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+  letter-spacing: 0.75px;
+}
+
+.heading-tertiary {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 2.4rem;
+}
+
+.btn,
+.btn:link,
+.btn:visited {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 1.6rem 3.2rem;
+  border-radius: 1rem;
+
+  /*Only necessary for .btn */
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+
+  /* transitions the color of the button over a period
+ of time. This always is put into the original state.*/
+  /*transition: background-color 300ms;*/
+  transition: all 200ms;
+}
+
+.btn--full:link,
+.btn--full:visited {
+  background-color: #e67e22;
+  color: #ffffff;
+}
+
+.btn--full:hover,
+.btn--full:active {
+  background-color: #cf711f;
+}
+
+.btn--outline:link,
+.btn--outline:visited {
+  background-color: #ffffff;
+  color: #555555;
+}
+
+.btn--outline:hover,
+.btn--outline:active {
+  background-color: #fdf2e9;
+  /*border: 3px solid #ffffff;*/
+  /*to add border inside  use box-shadow*/
+  box-shadow: inset 0 0 0 4px #ffffff;
+}
+
+.btn--form {
+  background-color: #45260a;
+  color: #fae5d3;
+  align-self: center;
+  padding: 1.2rem 2.4rem;
+}
+
+.btn--form:hover {
+  background-color: #ffffff;
+  color: #555555;
+}
+
+.link:link,
+.link:hover {
+  display: inline-block;
+  text-decoration: none;
+  color: #e67e22;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.4rem;
+  transition: all 300ms;
+}
+
+.link:hover,
+.link:active {
+  color: #cf711f;
+  border-bottom: 1px solid transparent;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.list-icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  color: #e67e22;
+}
+
+.list-item {
+  font-size: 1.8rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  line-height: 1.2;
+}
+
+/*************************/
+/*Helper/Settings Classes*/
+/*************************/
+
+.margin-right-sm {
+  margin-right: 1.6rem !important;
+}
+
+.margin-bottom-md {
+  margin-bottom: 4.8rem !important;
+}
+
+.center-text {
+  text-align: center;
+}
